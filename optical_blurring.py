@@ -150,16 +150,19 @@ def kernel_psf():
     """
     计算卷积核，将卷积核划分为两个较小的卷积核
     """
-    xy_psf = np.zeros(518)
-    z_psf = np.zeros(1034)
+    xy_psf = np.zeros(700)
+    z_psf = np.zeros(700)
 
-    coe_f = 1.0 / (sqrt(0.25 * pi / log(2.0)) * 400)
-    sigma = 400 ** 2 / log(2.0) * 0.25
+    # xy_psf:518 z_psf:1034
+    # 400 800
+
+    coe_f = 1.0 / (sqrt(0.25 * pi / log(2.0)) * 542)
+    sigma = 542 ** 2 / log(2.0) * 0.25
     for i in range(len(xy_psf)):
         xy_psf[i] = coe_f * exp(-i ** 2 / sigma)
 
-    coe_f = 1.0 / (sqrt(0.25 * pi / log(2.0)) * 800)
-    sigma = 800 ** 2 / log(2.0) * 0.25
+    coe_f = 1.0 / (sqrt(0.25 * pi / log(2.0)) * 542)
+    sigma = 542 ** 2 / log(2.0) * 0.25
     for i in range(len(z_psf)):
         z_psf[i] = coe_f * exp(-i ** 2 / sigma)
 
@@ -207,7 +210,7 @@ def plot(c_caf, file):
     ax.plot(x, y)
     ax.ticklabel_format(style='plain')
     plt.grid()
-    plt.savefig("figure/convolved_" + os.path.splitext(file)[0] + ".jpg")
+    plt.savefig("figure/convolved_new_" + os.path.splitext(file)[0] + ".jpg")
     plt.show()
 
 

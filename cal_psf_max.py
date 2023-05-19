@@ -6,4 +6,4 @@ def max(FWHM):
     x = sqrt(-2*log(threshold)*sigma)
     print(x)
 
-max(400)
+max(542)
